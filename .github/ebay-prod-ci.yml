@@ -1,0 +1,36 @@
+name: ebay prod deployment
+
+on:
+  push:
+    branches:
+      - main
+      - prod
+      - dev
+      - qa
+      - uat
+
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+
+    steps:
+      - name: Checkout Code
+        uses: actions/Checkout@v4
+
+      - name: Display files
+        run: ls -la 
+
+      - name: Run test
+        run: 
+            echo "Running the test"
+            test -f index.html
+
+      - name: build stage
+        run: 
+            echo "buildling the imagee"
+            echo "Build successfully"
+
+
+
