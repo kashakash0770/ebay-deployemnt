@@ -27,7 +27,8 @@ jobs:
           
               "clientId":"${{secrets.AZ_CLIENT_ID}}",
               "clientSecrect":"${{secrets.AZ_CLI_PASS}}",
-              "subId":"${{secrets.AZ_SUB_ID}}"
+              "subId":"${{secrets.AZ_SUB_ID}}",
+              "TentID":"${{secrets.AZ_TENT_ID}}"
           
             }
 
