@@ -19,18 +19,31 @@ jobs:
       - name: Checkout Code
         uses: actions/Checkout@v4
 
-      - name: Display files
-        run: ls -la 
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          cred: >
+            {
+          
+              "clientId":"${{secrets.AZ_CLIENT_ID}}",
+              "clientSecrect":"${{secrets.AZ_CLI_PASS}}",
+              "subId":"${{secrets.AZ_SUB_ID}}"
+          
+            }
 
-      - name: Run test
-        run: 
-            echo "Running the test"
-            test -f index.html
+      - name: create RG group
+        run: | 
+          az group create --name ebay-rg-prod-rg-01 --location centralindia
 
-      - name: build stage
-        run: 
-            echo "buildling the imagee"
-            echo "Build successfully"
+      # - name: Run test
+      #   run: 
+      #       echo "Running the test"
+      #       test -f index.html
+
+      # - name: build stage
+      #   run: 
+      #       echo "buildling the imagee"
+      #       echo "Build successfully"
 
 
 
